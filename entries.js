@@ -203,6 +203,24 @@ export const entries = [
     ],
   },
   {
+    keys: ["free tomorrow", "free"],
+    rows: [
+      { icon: "i-calendar", title: "Free tomorrow: 3 slots", subtitle: "Tue, Nov 4: 9:00 – 10:30 AM, 1:00 – 3:00 PM, 4:30 – 6:00 PM", action: "Copy All", toast: "Copied, a line a day, to paste in an email" },
+      { icon: "i-calendar", title: "9:00 – 10:30 AM", subtitle: "Tue, Nov 4 · 1h 30m", action: "Copy", toast: "Copied Tue, Nov 4, 9:00 – 10:30 AM" },
+    ],
+  },
+  {
+    keys: ["screenshots", "latest screenshot"],
+    rows: [
+      { icon: "i-image", title: "Screenshot 2026-10-31 at 10.42.07.png", subtitle: "2 minutes ago · 412 KB", action: "Paste", toast: "Pasted into the app you were in" },
+      { icon: "i-image", title: "Screenshot 2026-10-31 at 09.15.33.png", subtitle: "1 hour ago · 1.2 MB", action: "Paste", toast: "Pasted into the app you were in" },
+    ],
+  },
+  {
+    keys: ["wifi password"],
+    rows: [{ icon: "i-qr", title: "Show the Password for “Northwind Guest”", subtitle: "macOS asks for your Mac's password first", action: "Show", toast: "Shows the password, with a QR code a phone joins from" }],
+  },
+  {
     keys: ["speed", "speedtest"],
     rows: [{ icon: "i-gauge", title: "Test Internet Speed", subtitle: "Download, upload and latency, with Apple’s servers", action: "Test", toast: "Tests for about 20 seconds, then shows your speed" }],
   },

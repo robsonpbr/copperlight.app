@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy: every server and permission in Copperlight</title>
+  <meta name="description" content="Copperlight has no account, analytics or crash reports. Here is every server it contacts, every macOS permission it asks for, and every file it keeps.">
+  <link rel="canonical" href="https://copperlight.app/privacy/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#0E0C0B">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Copperlight">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://copperlight.app/privacy/">
+  <meta property="og:title" content="Privacy: every server and permission in Copperlight">
+  <meta property="og:description" content="Copperlight has no account, analytics or crash reports. Here is every server it contacts, every macOS permission it asks for, and every file it keeps.">
+  <meta property="og:image" content="https://copperlight.app/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Copperlight, a warmer light than Spotlight: the launcher converting 29.99 euros to US dollars">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/mark.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/GeistMono-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://copperlight.app/privacy/",
+      "url": "https://copperlight.app/privacy/",
+      "name": "Privacy: every server and permission in Copperlight",
+      "description": "Copperlight has no account, analytics or crash reports. Here is every server it contacts, every macOS permission it asks for, and every file it keeps.",
+      "inLanguage": "en",
+      "dateModified": "2026-10-31",
+      "isPartOf": {
+        "@id": "https://copperlight.app/#website"
+      },
+      "about": {
+        "@id": "https://copperlight.app/#app"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Copperlight",
+          "item": "https://copperlight.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Privacy",
+          "item": "https://copperlight.app/privacy/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does Copperlight collect any data about me?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It has no account, no analytics, no crash reports and no AI service. What you type stays on your Mac, and what it keeps is in ~/.config/copperlight/ on your Mac."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Copperlight work offline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Apps, files, math, units, clipboard history, snippets, notes, windows and translation all work without a connection. Stocks, the weather, Wikipedia, currency rates and the speed test need one."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does Copperlight ask for Accessibility?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To paste into the app you were in, move windows, search menus and read the text you selected. Without it, a paste copies instead."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav__inner">
+    <a class="brand" href="/"><img src="/mark.svg" width="20" height="20" alt="">Copperlight</a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="/#features">Features</a>
+      <a href="/spotlight-alternative/">Compare</a>
+      <a href="https://github.com/ramosrob/copperlight">GitHub</a>
+    </nav>
+    <a class="btn btn--primary btn--small" href="https://github.com/ramosrob/copperlight/releases/latest/download/Copperlight.zip">Download</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero glow">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Copperlight</a><span aria-hidden="true">/</span><span aria-current="page">Privacy</span></nav>
+      <p class="eyebrow">Privacy</p>
+      <h1>What you type stays on your Mac.</h1>
+      <p class="lead">Copperlight has no account, no analytics and no crash reports, and it uses no AI service. It only reaches out when you ask for something that lives elsewhere, like a stock price or the weather, and then only with what that answer needs. Here is all of it.</p>
+    </div>
+  </section>
+
+  <section class="section doc">
+    <div class="container">
+      <h2>Every server it contacts</h2>
+      <p>Searches and links open in your browser, so they’re between you and the site you chose. Everything Copperlight asks for itself is below. The source is open, so you can check every line.</p>
+
+      <h3 class="doc__sub">Public lists, with nothing about you</h3>
+      <div class="compare-wrap">
+        <table class="compare compare--list">
+          <caption class="visually-hidden">Servers Copperlight contacts on its own</caption>
+          <thead><tr><th scope="col">Server</th><th scope="col">When</th><th scope="col">What it sends</th></tr></thead>
+          <tbody>
+          <tr><th scope="row">api.coinbase.com</th><td data-label="When">When you open the launcher, at most every 5 minutes</td><td data-label="What it sends">Nothing: it asks for every currency’s rate at once, so it never learns which ones you convert</td></tr>
+          <tr><th scope="row">formulae.brew.sh</th><td data-label="When">Once a week</td><td data-label="What it sends">Nothing: it downloads Homebrew’s whole public app list, so it never learns which apps you have</td></tr>
+          <tr><th scope="row">Each app’s homepage</th><td data-label="When">Once per app, for the apps in Homebrew’s list that you have</td><td data-label="What it sends">A plain request for the page, to read its one-line summary</td></tr>
+          <tr><th scope="row">itunes.apple.com</th><td data-label="When">Once per app you got from the App Store</td><td data-label="What it sends">The app’s bundle id, to read the App Store’s description</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>These let you find an app by what it does, like “draw” or “noise”, and convert currencies offline. <span class="mono">[apps] online = false</span> turns the app descriptions off.</p>
+
+      <h3 class="doc__sub">Only when you ask</h3>
+      <div class="compare-wrap">
+        <table class="compare compare--list">
+          <caption class="visually-hidden">Servers Copperlight contacts when you ask</caption>
+          <thead><tr><th scope="col">Server</th><th scope="col">When</th><th scope="col">What it sends</th></tr></thead>
+          <tbody>
+          <tr><th scope="row">query1.finance.yahoo.com</th><td data-label="When">In the Stock chip (<span class="mono">stock aapl</span>, then Tab), once you pause typing</td><td data-label="What it sends">The ticker</td></tr>
+          <tr><th scope="row">api.open-meteo.com</th><td data-label="When">In the Weather chip, once you pause typing</td><td data-label="What it sends">The city you typed or set, or where you are, rounded to about a kilometer</td></tr>
+          <tr><th scope="row"><em>language</em>.wikipedia.org</th><td data-label="When">In the Wikipedia chip (<span class="mono">wiki lisbon</span>, then Tab), once you pause typing</td><td data-label="What it sends">What you typed, in your Mac’s first language</td></tr>
+          <tr><th scope="row">api.ipify.org</th><td data-label="When">Enter on the Public IP row (<span class="mono">ip</span>)</td><td data-label="What it sends">Nothing besides the request: it answers with your public address</td></tr>
+          <tr><th scope="row">Apple’s servers</th><td data-label="When">Enter on <span class="mono">speed</span></td><td data-label="What it sends">The speed test macOS runs itself</td></tr>
+          <tr><th scope="row">Homebrew, and the app’s site</th><td data-label="When">Enter on Install, on an app you don’t have</td><td data-label="What it sends">The download of that app</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Typing alone never sends anything: an answer from elsewhere waits for its chip and a pause, or for Enter. Translation, the dictionary, spelling, and the text in photos and on screen are all read on your Mac.</p>
+
+      <h2>Every permission it can ask for</h2>
+      <p>None are needed to start. macOS asks the first time a feature needs one, and saying no turns off only that feature.</p>
+      <div class="compare-wrap">
+        <table class="compare compare--list">
+          <caption class="visually-hidden">macOS permissions Copperlight can ask for</caption>
+          <thead><tr><th scope="col">Permission</th><th scope="col">What it turns on</th><th scope="col">Without it</th></tr></thead>
+          <tbody>
+          <tr><th scope="row">Accessibility</th><td data-label="What it turns on">Pasting into your app, window commands and layouts, menu search, the media keys, opening on the text you selected</td><td data-label="Without it">A paste copies instead</td></tr>
+          <tr><th scope="row">Automation</th><td data-label="What it turns on">Your browser’s open tabs; the files you selected in Finder; <span class="mono">:empty trash</span>, <span class="mono">:dark</span>, <span class="mono">:restart</span>, <span class="mono">:log out</span></td><td data-label="Without it">Those don’t work</td></tr>
+          <tr><th scope="row">Calendars</th><td data-label="What it turns on"><span class="mono">add event</span>; <span class="mono">meetings</span>, <span class="mono">week</span>, <span class="mono">month</span>, <span class="mono">free</span> and the next meeting</td><td data-label="Without it">No events</td></tr>
+          <tr><th scope="row">Reminders</th><td data-label="What it turns on"><span class="mono">add todo</span>, and the ones that are due</td><td data-label="Without it">No reminders</td></tr>
+          <tr><th scope="row">Contacts</th><td data-label="What it turns on">Finding people as you type their name</td><td data-label="Without it">No people</td></tr>
+          <tr><th scope="row">Location Services</th><td data-label="What it turns on">The weather where you are, and the name of your Wi-Fi network for <span class="mono">wifi password</span></td><td data-label="Without it">Set a city in Settings, or type the network’s name</td></tr>
+          <tr><th scope="row">Camera</th><td data-label="What it turns on"><span class="mono">camera</span>: seeing yourself before a call; nothing is recorded</td><td data-label="Without it">No camera</td></tr>
+          <tr><th scope="row">Bluetooth</th><td data-label="What it turns on"><span class="mono">:connect</span>: your paired devices</td><td data-label="Without it">No devices</td></tr>
+          <tr><th scope="row">Screen Recording</th><td data-label="What it turns on"><span class="mono">copy text</span>: the part of the screen you drag over</td><td data-label="Without it">No text from the screen</td></tr>
+          <tr><th scope="row">Photos</th><td data-label="What it turns on">The text in your photos, read on your Mac</td><td data-label="Without it">Photos aren’t searched</td></tr>
+          <tr><th scope="row">Notifications</th><td data-label="What it turns on">The end of a pomodoro or a timer, and errors</td><td data-label="Without it">Those end silently</td></tr>
+          <tr><th scope="row">Full Disk Access, by hand</th><td data-label="What it turns on">Safari’s bookmarks and history, and <span class="mono">codes</span> from Messages</td><td data-label="Without it">No Safari, no codes</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>What it keeps</h2>
+      <p>Everything is in <span class="mono">~/.config/copperlight/</span> on your Mac, and nowhere else: your settings, notes, clipboard history (readable only by you), what it learned about what you open, and cached currency rates and app descriptions. Copies made in password managers are never recorded, and a link you copy loses its tracking (<span class="mono">utm_</span>, <span class="mono">fbclid</span>). Settings has a Forget button for what it learned; deleting the folder removes everything.</p>
+      <p>Contacts, browser tabs, reminders and events are read when you open the launcher and kept in memory only. <span class="mono">codes</span> reads only the last 15 minutes of Messages, when you type it. A Wi-Fi password is shown only after macOS asks for your Mac’s password, and kept in memory for 10 minutes.</p>
+
+      <h2>Turning things off</h2>
+      <p>Any feature can be turned off in Settings › Features, or in <span class="mono">config.toml</span>. Off means off: no rows, no background work, no network, no permission asked.</p>
+
+      <h2>Questions</h2>
+      <div class="faq__list">
+        <details class="faq__item">
+          <summary>Does Copperlight collect any data about me?</summary>
+          <p>No. It has no account, no analytics, no crash reports and no AI service. What you type stays on your Mac, and what it keeps is in ~/.config/copperlight/ on your Mac.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Does Copperlight work offline?</summary>
+          <p>Yes. Apps, files, math, units, clipboard history, snippets, notes, windows and translation all work without a connection. Stocks, the weather, Wikipedia, currency rates and the speed test need one.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Why does Copperlight ask for Accessibility?</summary>
+          <p>To paste into the app you were in, move windows, search menus and read the text you selected. Without it, a paste copies instead.</p>
+        </details>
+      </div>
+      <p class="sources">The full list, kept with the code: <a href="https://github.com/ramosrob/copperlight/blob/main/PRIVACY.md">PRIVACY.md</a>. Checked October 2026.</p>
+    </div>
+  </section>
+
+  <section class="section download cta glow" aria-labelledby="cta-title">
+    <div class="container">
+      <h2 id="cta-title">Try it in a minute.</h2>
+      <p class="section-lead">Download it, drag it into Applications and press <span class="keys"><kbd>⌥</kbd><kbd>Space</kbd></span>. The first launch takes <a href="/#download">one extra click</a>.</p>
+      <div class="download__cta">
+        <a class="btn btn--primary" href="https://github.com/ramosrob/copperlight/releases/latest/download/Copperlight.zip">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg>
+          Download Copperlight
+        </a>
+        <p class="meta">macOS 15 or later · Apple silicon and Intel · 10 MB</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p class="footer__brand"><img src="/mark.svg" width="16" height="16" alt="">Copperlight <span>· GPL-3.0 · by Rob Ramos</span></p>
+    <nav class="footer__links" aria-label="Elsewhere">
+      <a href="/spotlight-alternative/">Compare</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="https://github.com/ramosrob/copperlight">GitHub</a>
+      <a href="https://github.com/sponsors/ramosrob">Sponsor</a>
+      <a href="https://buymeacoffee.com/ramosrob">Buy me a coffee</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

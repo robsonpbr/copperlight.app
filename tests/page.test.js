@@ -216,20 +216,40 @@ test("v0.3's features are on the page and in the demo", () => {
   assert.ok(!/No modes/.test(text), "a name can be a chip now");
 });
 
-test("the built-in tools are listed, each with what to type and what it does", () => {
+test("the built-in tools come in groups, each with a card from the app beside it, then what to type and what it does", () => {
   const at = ['id="features"', 'id="tools"', 'id="principles"'].map((s) => html.indexOf(s));
   assert.ok(at[0] < at[1] && at[1] < at[2], "after the chapters, before the principles");
   const section = html.slice(at[1], at[2]);
+  const groups = section.split('<div class="tools__group').slice(1);
+  assert.ok(groups.length >= 4, `${groups.length} groups`);
+  const cardLast = groups.map((group) => group.indexOf('class="tools__card"') > group.indexOf('<dl class="tools__list">'));
+  assert.deepEqual(cardLast, groups.map((_, i) => i % 2 === 1), "the card opens one group and closes the next, so it zigzags");
+  for (const group of groups) {
+    assert.match(group, /<h3>[^<]+<\/h3>/);
+    const card = group.match(/<img class="tools__card" src="media\/(answer-[a-z]+)-682\.webp"[^>]* loading="lazy"[^>]* alt="([^"]*)">/);
+    assert.ok(card, "a card from the app");
+    assert.ok(card[2].length > 40, `its alt says what it shows: ${card[1]}`);
+    for (const size of [682, 1364]) assert.ok(statSync(new URL(`../media/${card[1]}-${size}.webp`, import.meta.url)).size > 0, `${card[1]}-${size}`);
+    assert.ok(group.split('<div class="tool">').length > 4, "a few tools each");
+  }
   const tools = [...section.matchAll(/<div class="tool">\s*<dt>([^<]+)<\/dt>\s*<dd class="mono">([^<]+)<\/dd>\s*<dd>([^<]+)<\/dd>\s*<\/div>/g)];
-  assert.ok(tools.length >= 12 && tools.length % 2 === 0, `an even list, two columns: ${tools.length}`);
+  assert.equal(tools.length, section.split('<div class="tool">').length - 1, "every tool has a name, what to type and what it does");
   const commands = tools.map(([, , command]) => command);
   for (const command of ["clip", "pomo 50", "timer 10 min tea", "translate", "stock aapl", ":play", ":awake"]) assert.ok(commands.includes(command), command);
   assert.match(css, /\.tools__list\s*{/);
+  assert.match(css, /\.tools__group\s*{[^}]*columns:\s*2/, "card and tools share two even columns, no hole under the card");
+  assert.match(css, /\.tool\s*{[^}]*break-inside:\s*avoid/, "a tool is never cut between columns");
+});
+
+test("no labels over the chapters' headings: the heading says it", () => {
+  const chapters = html.slice(html.indexOf('id="features"'), html.indexOf('id="tools"'));
+  assert.ok(!chapters.includes('class="kicker"'));
+  assert.doesNotMatch(css, /\.kicker\s*{/);
 });
 
 test("v0.4: the timer, on the page and in the demo", async () => {
   const text = visibleText(html);
-  const day = html.slice(html.indexOf('<p class="kicker">Your day</p>'), html.indexOf("</article>", html.indexOf('<p class="kicker">Your day</p>')));
+  const day = html.slice(html.indexOf("<h2>Your day, a keystroke away.</h2>"), html.indexOf("</article>", html.indexOf("<h2>Your day, a keystroke away.</h2>")));
   assert.ok(visibleText(day).includes("timer"), "Your day mentions the timer");
   const { entries, modes } = await import("../entries.js");
   const keys = entries.flatMap((entry) => entry.keys);
@@ -239,8 +259,8 @@ test("v0.4: the timer, on the page and in the demo", async () => {
 
 test("chips have a chapter of their own, right after Find, and the chapters still alternate", () => {
   const chapters = [...html.matchAll(/<article class="chapter( chapter--flip)? reveal">([\s\S]*?)<\/article>/g)];
-  const kickers = chapters.map(([, , body]) => body.match(/<p class="kicker">([^<]+)<\/p>/)[1]);
-  assert.equal(kickers[1], "Chips");
+  const headings = chapters.map(([, , body]) => body.match(/<h2>([^<]+)<\/h2>/)[1]);
+  assert.equal(headings[1], "Press Tab, and it&rsquo;s a tool.");
   assert.deepEqual(chapters.map(([, flip]) => Boolean(flip)), chapters.map((_, i) => i % 2 === 1), "text and picture alternate");
   const chips = chapters[1][2];
   assert.ok(visibleText(chips).includes("Press Tab"));
@@ -274,7 +294,7 @@ test("v0.6: windows, layouts, the Mac's numbers, the selection and ↑, on the p
 test("v0.8: the stopwatch, timer until, and what's running waiting when it opens", async () => {
   const text = visibleText(html);
   for (const phrase of ["stopwatch", "until 15:30"]) assert.ok(text.includes(phrase), phrase);
-  const start = html.indexOf('<p class="kicker">Your day</p>');
+  const start = html.indexOf("<h2>Your day, a keystroke away.</h2>");
   const day = html.slice(start, html.indexOf("</article>", start));
   assert.ok(visibleText(day).includes("ticking"), "Your day says what's running waits there");
   assert.match(day, /class="pill"/, "a copper pill on the rows, as in the app");
@@ -397,7 +417,17 @@ test("the demo moves like the app: rows as it types, the card gliding to them, t
 test("v0.12: your week, features off, your own keywords and color, typos forgiven, on the page", () => {
   const text = visibleText(html);
   for (const phrase of ["your week at a glance", "Turn off any feature", "your own words", "accent color", "typo"]) assert.ok(text.includes(phrase), phrase);
-  assert.ok(text.includes("Download Copperlight 0.12") && html.includes('"softwareVersion": "0.12"')); // with each release
+});
+
+test("v0.13: free time, screenshots, Wi-Fi, codes, Wikipedia and the camera, on the page and in the demo; privacy linked", async () => {
+  const section = html.slice(html.indexOf('id="tools"'), html.indexOf('id="principles"'));
+  const commands = [...section.matchAll(/<dd class="mono">([^<]+)<\/dd>/g)].map(([, command]) => command);
+  for (const command of ["free tomorrow", "screenshots", "wifi password", "codes", "wiki lisbon", "camera"]) assert.ok(commands.includes(command), command);
+  const { entries } = await import("../entries.js");
+  const keys = entries.flatMap((entry) => entry.keys);
+  for (const key of ["free tomorrow", "screenshots", "wifi password"]) assert.ok(keys.includes(key), key);
+  assert.ok(html.includes('href="/privacy/"'));
+  assert.ok(visibleText(html).includes("Download Copperlight 0.13") && html.includes('"softwareVersion": "0.13"')); // with each release
 });
 
 test("one version and one size, wherever the page says them", () => {
@@ -405,4 +435,12 @@ test("one version and one size, wherever the page says them", () => {
   const sizes = new Set([...html.matchAll(/(\d+) MB\b/g)].map((m) => m[1]));
   assert.equal(versions.size, 1, [...versions].join(", "));
   assert.equal(sizes.size, 1, [...sizes].join(", "));
+});
+
+test("on a touch screen, the chips, the logo, the small Download and the footer links are 44 px tall", () => {
+  const touch = css.match(/@media \(pointer: coarse\)\s*{([\s\S]*?)\n}/)?.[1] ?? "";
+  for (const selector of [".chip", ".brand", ".btn--small", ".footer__links a"]) {
+    const escaped = selector.replace(/[.]/g, "\\.");
+    assert.match(touch, new RegExp(`${escaped}[^{]*{[^}]*(min-)?height:\\s*44px`), selector);
+  }
 });

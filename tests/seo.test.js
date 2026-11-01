@@ -11,8 +11,9 @@ const PAGES = [
   { path: "spotlight-alternative/index.html", url: `${SITE}/spotlight-alternative/` },
   { path: "raycast-alternative/index.html", url: `${SITE}/raycast-alternative/` },
   { path: "alfred-alternative/index.html", url: `${SITE}/alfred-alternative/` },
+  { path: "privacy/index.html", url: `${SITE}/privacy/` },
 ];
-const COMPARISONS = PAGES.slice(1);
+const COMPARISONS = PAGES.filter((page) => page.path.includes("-alternative/"));
 const DOWNLOAD = "https://github.com/ramosrob/copperlight/releases/latest/download/Copperlight.zip";
 
 const meta = (html, attr, name) => html.match(new RegExp(`<meta ${attr}="${name}" content="([^"]*)"`))?.[1];
@@ -105,6 +106,15 @@ test("the sitemap lists every page, and robots.txt points to it", () => {
   assert.match(robots, /^User-agent: \*$/m);
   assert.doesNotMatch(robots, /^Disallow: \/\s*$/m);
   assert.match(robots, new RegExp(`^Sitemap: ${SITE}/sitemap\\.xml$`, "m"));
+});
+
+test("the privacy page is linked from every page, and names no other launcher", () => {
+  for (const { path } of PAGES) assert.ok(read(path).includes('href="/privacy/"'), path);
+  const text = visibleText(read("privacy/index.html"));
+  assert.doesNotMatch(text, /raycast|alfred/i);
+  for (const server of ["api.coinbase.com", "formulae.brew.sh", "itunes.apple.com", "query1.finance.yahoo.com", "api.open-meteo.com", "wikipedia.org", "api.ipify.org"]) {
+    assert.ok(text.includes(server), server);
+  }
 });
 
 test("a 404 page that isn't indexed and leads home", () => {

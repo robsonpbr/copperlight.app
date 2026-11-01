@@ -322,8 +322,7 @@ kbd {
 .chapter { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: clamp(40px, 6vw, 88px); align-items: center; }
 .chapter--flip .chapter__text { order: 2; }
 .chapter h2 { font-size: clamp(2rem, 3.8vw, 3rem); }
-.chapter__text p:not(.kicker):not(.commands) { margin-top: 18px; max-width: 30em; color: var(--text-2); font-size: 17px; }
-.kicker { font: 500 12.5px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--copper-light); margin-bottom: 18px; }
+.chapter__text p:not(.commands) { margin-top: 18px; max-width: 30em; color: var(--text-2); font-size: 17px; }
 .commands { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
 .commands .mono { font-size: 13px; padding: 6px 10px; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); color: #D8CEC4; }
 .chapter__visual { position: relative; isolation: isolate; }
@@ -428,21 +427,28 @@ kbd {
 .chapter__card { display: block; width: 100%; height: auto; filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.55)); }
 @keyframes answer-hold { to { transform: scaleX(1); } }
 
-/* The built-in tools: a quiet two-column list, name and what to type, then what it does */
+/* The built-in tools, in groups: the heading, a card from the app and the tools in two even columns, the card opening
+   one group and closing the next */
 .tools { text-align: center; }
-.tools__list {
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(32px, 5vw, 64px);
-  margin: 52px 0 0; text-align: left;
-}
+.tools__group { columns: 2; column-gap: clamp(36px, 5vw, 72px); margin-top: clamp(64px, 8vw, 104px); text-align: left; }
+.tools__card { display: block; width: 100%; height: auto; margin: 6px 0 26px; break-inside: avoid; filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.55)); }
+.tools__card:last-child { margin: 26px 0 0; }
+.tools__group h3 { margin-bottom: 14px; font-size: clamp(1.6rem, 2.6vw, 2.1rem); line-height: 1.1; letter-spacing: -0.035em; }
+.tools__list { margin: 0; }
 .tool {
-  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 6px 16px;
-  padding: 20px 2px; border-top: 1px solid var(--line);
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 2px 16px;
+  padding: 12px 2px; border-top: 1px solid var(--line); break-inside: avoid;
 }
-.tool dt { font-weight: 500; font-size: 17px; letter-spacing: -0.015em; }
+.tool dt { font-weight: 500; font-size: 15.5px; letter-spacing: -0.015em; }
 .tool dd { margin: 0; }
-.tool .mono { font-size: 12.5px; padding: 4px 9px; border-radius: 7px; background: var(--surface); border: 1px solid var(--line); color: #D8CEC4; white-space: nowrap; }
-.tool dd:last-child { grid-column: 1 / -1; font-size: 15px; line-height: 1.5; color: var(--text-2); }
-@media (max-width: 640px) { .tools__list { grid-template-columns: minmax(0, 1fr); } }
+.tool .mono { font-size: 12.5px; padding: 3px 8px; border-radius: 7px; background: var(--surface); border: 1px solid var(--line); color: #D8CEC4; white-space: nowrap; }
+.tool dd:last-child { grid-column: 1 / -1; font-size: 14px; line-height: 1.45; color: var(--text-2); }
+/* One column: the heading, its card, then the tools, in every group */
+@media (max-width: 860px) {
+  .tools__group { display: flex; flex-direction: column; margin-top: 64px; }
+  .tools__group h3 { order: -2; }
+  .tools__card, .tools__card:last-child { order: -1; margin: 0 0 22px; }
+}
 
 /* Principles */
 .principles__list {
@@ -550,6 +556,11 @@ kbd {
 .compare tbody th { width: 24%; font-weight: 500; color: var(--text); }
 .compare td { width: 38%; color: var(--text-2); }
 .compare td:first-of-type { color: var(--text); background: rgba(232, 140, 74, 0.035); }
+.doc__sub { margin-top: 44px; font-weight: 500; font-size: 18px; letter-spacing: -0.015em; color: var(--text); }
+.compare--list thead th:nth-child(2) { color: var(--text-2); }
+.compare--list tbody th { width: 28%; }
+.compare--list td { width: auto; }
+.compare--list td:first-of-type { color: var(--text-2); background: none; }
 .compare__note, .sources { margin-top: 14px; font-size: 13.5px; color: var(--text-2); }
 .picks, .others { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 28px; }
 .pick, .other { padding: 24px 24px 26px; border-radius: 18px; background: rgba(21, 18, 16, 0.85); border: 1px solid var(--line); }
@@ -575,4 +586,11 @@ kbd {
   .compare td { margin-top: 10px; }
   .compare td::before { content: attr(data-label); display: block; margin-bottom: 3px; font: 500 11px/1.4 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-2); }
   .compare td:first-of-type::before { color: var(--copper-light); }
+}
+
+/* Touch screens: every control a fingertip tall */
+@media (pointer: coarse) {
+  .chip, .brand { min-height: 44px; }
+  .btn--small { height: 44px; }
+  .footer__links a { display: inline-flex; align-items: center; min-height: 44px; }
 }

@@ -52,7 +52,7 @@
         "description": "A free, open source launcher for Mac that takes Spotlight’s place: apps, files, clipboard history, window management, snippets, math and currency, from one hotkey.",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "macOS 15 or later",
-        "softwareVersion": "0.12",
+        "softwareVersion": "0.13",
         "downloadUrl": "https://github.com/ramosrob/copperlight/releases/latest/download/Copperlight.zip",
         "fileSize": "10 MB",
         "license": "https://www.gnu.org/licenses/gpl-3.0.html",
@@ -268,7 +268,6 @@
 
       <article class="chapter reveal">
         <div class="chapter__text">
-          <p class="kicker">Find</p>
           <h2>Everything, from one field.</h2>
           <p>Apps, files and folders, people from your contacts, your browser's open tabs, bookmarks and history, System Settings pages, math, currency, units, time zones, dates, colors, translations, stock prices, the weather, and your Mac’s own numbers: what&rsquo;s using the processor, battery, disk space, IP, open ports. No menus to dig through: start typing, press Enter. It learns from what you pick, so <span class="mono">ss</span> becomes Slack with no setup, and it forgives a typo: <span class="mono">slcak</span> still finds Slack. An app you don&rsquo;t have installs from its row, with Homebrew. Select text anywhere first and it’s already typed; <span class="keys"><kbd>↑</kbd></span> brings back what you ran.</p>
         </div>
@@ -281,7 +280,6 @@
 
       <article class="chapter chapter--flip reveal">
         <div class="chapter__text">
-          <p class="kicker">Chips</p>
           <h2>Press Tab, and it&rsquo;s a tool.</h2>
           <p>Type the start of a tool&rsquo;s name and press <span class="keys"><kbd>Tab</kbd></span>: it becomes a chip, and what you type next goes straight to it. Translate into German, look up a stock&rsquo;s last seven days, add a reminder, quit an app. A space stays a space, so searching for a file is never taken over. On a file, an app or something you copied, Tab shows what you can do with it instead: an app&rsquo;s recent documents, open with, reveal, quit.</p>
           <p class="commands"><span class="mono">tra</span><span class="mono">stock aapl</span><span class="mono">add todo</span><span class="mono">:quit</span></p>
@@ -298,7 +296,6 @@
 
       <article class="chapter reveal">
         <div class="chapter__text">
-          <p class="kicker">Answers</p>
           <h2>Answers in their own shape.</h2>
           <p>Most results are rows. An answer that reads better big takes the whole card, laid out for what it is: a stock&rsquo;s week across the card, a city&rsquo;s next hours and five days, a person with every way to reach them beside, what your money makes between both flags, the meeting about to start before you type a thing.</p>
           <p class="commands"><span class="mono">weather</span><span class="mono">stock aapl</span><span class="mono">contact ana</span><span class="mono">25 usd to eur</span></p>
@@ -310,7 +307,6 @@
 
       <article class="chapter chapter--flip reveal">
         <div class="chapter__text">
-          <p class="kicker">Clipboard</p>
           <h2>Your clipboard, remembered.</h2>
           <p>Everything you copy, searchable, and pasted straight into the app you were in. Snippets fill themselves in: type <span class="mono">reply Ana</span> and the name lands in the right place.</p>
         </div>
@@ -329,7 +325,6 @@
 
       <article class="chapter reveal">
         <div class="chapter__text">
-          <p class="kicker">Windows and menus</p>
           <h2>Windows and menus, without the mouse.</h2>
           <p>Send the window in front to a half, a quarter, a third or the whole screen, nudge it a step at a time, and put it back. Save every window on screen as a layout, and bring it all back with one command. Switch between windows by name. And every menu item of the app you're in is a search away: <span class="mono">:export pdf</span> finds it and shows its shortcut, and Enter chooses it. The Mac answers the same way: play, pause and skip the music, mute, switch to your headphones, or keep the screen awake.</p>
           <p class="commands"><span class="mono">:left</span><span class="mono">:top left</span><span class="mono">:layout work</span><span class="mono">:export pdf</span><span class="mono">:play</span><span class="mono">:mute</span><span class="mono">:awake</span></p>
@@ -346,7 +341,6 @@
 
       <article class="chapter chapter--flip reveal">
         <div class="chapter__text">
-          <p class="kicker">Your day</p>
           <h2>Your day, a keystroke away.</h2>
           <p>A few minutes before a call, it&rsquo;s already there when you open Copperlight: press Enter to join. Whatever you have running waits below it, ticking: a pomodoro, a timer, a stopwatch. Add a todo or an event as you think of it, without leaving what you're doing.</p>
           <p class="commands"><span class="mono">meetings</span><span class="mono">add todo</span><span class="mono">add event</span><span class="mono">pomo 25</span><span class="mono">timer 10 min tea</span><span class="mono">stopwatch</span></p>
@@ -365,7 +359,6 @@
 
       <article class="chapter reveal">
         <div class="chapter__text">
-          <p class="kicker">Yours</p>
           <h2>Make it yours.</h2>
           <p>Your settings live in one plain-text file you can read, edit and keep in git. Add your own commands, quicklinks and snippets; drop a script in a folder and it becomes a command, community script commands included. Run a shell line with <span class="mono">:!</span>, or turn text into JSON, a UUID or a hash. Turn off any feature you don&rsquo;t use, give its keyword your own words (<span class="mono">t</span> for translate), and trade copper for your Mac&rsquo;s accent color or any color you like.</p>
           <p class="commands"><span class="mono">:!git status</span><span class="mono">json</span><span class="mono">uuid</span></p>
@@ -397,171 +390,236 @@ text = <span class="t-s">"Hi {query}, thanks for the note."</span></pre>
   </section>
 
   <section class="section tools" id="tools" aria-labelledby="tools-title">
-    <div class="container reveal">
-      <h2 id="tools-title">The little tools, built in.</h2>
-      <p class="section-lead">What you&rsquo;d otherwise install one app at a time, a few letters away.</p>
-      <dl class="tools__list">
-        <div class="tool">
-          <dt>Clipboard history</dt>
-          <dd class="mono">clip</dd>
-          <dd>Everything you copy, text and images, searchable and pasted where you are.</dd>
-        </div>
-        <div class="tool">
-          <dt>Notes</dt>
-          <dd class="mono">note</dd>
-          <dd>Glass notes above your windows, in Markdown, saved as you type and found by what they say.</dd>
-        </div>
-        <div class="tool">
-          <dt>Pomodoro</dt>
-          <dd class="mono">pomo 50</dd>
-          <dd>A focus timer counting down in the menu bar, with breaks.</dd>
-        </div>
-        <div class="tool">
-          <dt>Timer and stopwatch</dt>
-          <dd class="mono">timer 10 min tea</dd>
-          <dd>A countdown for anything else, or until 15:30, and a stopwatch, ticking in the menu bar.</dd>
-        </div>
-        <div class="tool">
-          <dt>Quick capture</dt>
-          <dd class="mono">add todo</dd>
-          <dd>Reminders and calendar events, the date read from what you type.</dd>
-        </div>
-        <div class="tool">
-          <dt>Snippets</dt>
-          <dd class="mono">reply Ana</dd>
-          <dd>The text you type over and over, the name filled in and the cursor where you want it.</dd>
-        </div>
-        <div class="tool">
-          <dt>Meetings and your week</dt>
-          <dd class="mono">week</dd>
-          <dd>The rest of today&rsquo;s calendar, the next call waiting when you open it, and your week at a glance, a column a day.</dd>
-        </div>
-        <div class="tool">
-          <dt>Contacts</dt>
-          <dd class="mono">ana</dd>
-          <dd>Type a name and Enter messages them. Tab for call, FaceTime, WhatsApp or email.</dd>
-        </div>
-        <div class="tool">
-          <dt>Due reminders</dt>
-          <dd class="mono">due</dd>
-          <dd>What&rsquo;s overdue or due soon, waiting when you open it. Enter ticks it off.</dd>
-        </div>
-        <div class="tool">
-          <dt>Browser tabs</dt>
-          <dd class="mono">tabs</dd>
-          <dd>The tabs already open, found by their title. Enter switches to one instead of opening it again.</dd>
-        </div>
-        <div class="tool">
-          <dt>Translate</dt>
-          <dd class="mono">translate</dd>
-          <dd>On-device translation of what you type, or of what you copied.</dd>
-        </div>
-        <div class="tool">
-          <dt>Dictionary</dt>
-          <dd class="mono">define</dd>
-          <dd>The Mac&rsquo;s dictionary, right beside the results.</dd>
-        </div>
-        <div class="tool">
-          <dt>Stocks</dt>
-          <dd class="mono">stock aapl</dd>
-          <dd>The price and the last seven days, only when you ask.</dd>
-        </div>
-        <div class="tool">
-          <dt>Weather</dt>
-          <dd class="mono">weather</dd>
-          <dd>Now, the next hours and five days, where you are or in any city, only when you ask.</dd>
-        </div>
-        <div class="tool">
-          <dt>Music and sound</dt>
-          <dd class="mono">:play</dd>
-          <dd>Play, pause and skip, mute, or switch to your headphones.</dd>
-        </div>
-        <div class="tool">
-          <dt>Bluetooth</dt>
-          <dd class="mono">:connect airpods</dd>
-          <dd>Connect your AirPods or any paired device, or disconnect it.</dd>
-        </div>
-        <div class="tool">
-          <dt>Keep awake</dt>
-          <dd class="mono">:awake</dd>
-          <dd>Keeps your Mac and its screen awake for an hour or two, until a time, or until you say so.</dd>
-        </div>
-        <div class="tool">
-          <dt>Your Mac’s numbers</dt>
-          <dd class="mono">cpu</dd>
-          <dd>What&rsquo;s busy on the processor or in memory, with Enter to end it, the battery, free disk space, your IP and open ports.</dd>
-        </div>
-        <div class="tool">
-          <dt>Internet speed</dt>
-          <dd class="mono">speed</dd>
-          <dd>Your download and upload speed and latency, with Apple&rsquo;s own test, when you press Enter.</dd>
-        </div>
-        <div class="tool">
-          <dt>Window layouts</dt>
-          <dd class="mono">:layout work</dd>
-          <dd>Every window on screen, saved by name and put back in one go.</dd>
-        </div>
-        <div class="tool">
-          <dt>Mac commands</dt>
-          <dd class="mono">:quit all</dd>
-          <dd>Quit or hide every app, show the desktop, mute the mic, or log out.</dd>
-        </div>
-        <div class="tool">
-          <dt>Menu search</dt>
-          <dd class="mono">:export pdf</dd>
-          <dd>Any menu item of the app in front, found by its name.</dd>
-        </div>
-        <div class="tool">
-          <dt>File actions</dt>
-          <dd class="mono">:terminal</dd>
-          <dd>Open a file with another app, a folder in your terminal, or move either to the Trash.</dd>
-        </div>
-        <div class="tool">
-          <dt>Text tools</dt>
-          <dd class="mono">json</dd>
-          <dd>Format JSON, make a UUID or a password, encode or hash text.</dd>
-        </div>
-        <div class="tool">
-          <dt>Colors</dt>
-          <dd class="mono">pick color</dd>
-          <dd>Pick a color off the screen, or type one: hex, RGB and HSL, each with its swatch. The ones you picked are kept.</dd>
-        </div>
-        <div class="tool">
-          <dt>QR codes</dt>
-          <dd class="mono">qr</dd>
-          <dd>A QR code of a link or any text, or of what you copied, ready to paste.</dd>
-        </div>
-        <div class="tool">
-          <dt>Text from the screen</dt>
-          <dd class="mono">copy text</dd>
-          <dd>Drag over a video, a picture or an error you can&rsquo;t select, and its text is copied.</dd>
-        </div>
-        <div class="tool">
-          <dt>Spelling</dt>
-          <dd class="mono">spell definately</dd>
-          <dd>The word spelled right, or a whole sentence corrected, ready to paste.</dd>
-        </div>
-        <div class="tool">
-          <dt>Large Type</dt>
-          <dd class="mono">large 555-0100</dd>
-          <dd>Any text across the screen, big enough to read from across the room.</dd>
-        </div>
-        <div class="tool">
-          <dt>Conversions</dt>
-          <dd class="mono">25 usd to eur</dd>
-          <dd>Currencies, units and time zones, answered as you type, even after some math.</dd>
-        </div>
-        <div class="tool">
-          <dt>Dates</dt>
-          <dd class="mono">days until dec 25</dd>
-          <dd>How long until a date, or what day it is in 3 weeks, asked the way you&rsquo;d say it.</dd>
-        </div>
-        <div class="tool">
-          <dt>Emoji</dt>
-          <dd class="mono">emoji party</dd>
-          <dd>Every emoji by name, pasted where you are.</dd>
-        </div>
-      </dl>
+    <div class="container">
+      <div class="reveal">
+        <h2 id="tools-title">The little tools, built in.</h2>
+        <p class="section-lead">What you&rsquo;d otherwise install one app at a time, a few letters away.</p>
+      </div>
+
+      <div class="tools__group reveal">
+        <h3>Your day</h3>
+        <img class="tools__card" src="media/answer-month-682.webp" srcset="media/answer-month-682.webp 682w, media/answer-month-1364.webp 1364w" sizes="(max-width: 860px) calc(100vw - 40px), 560px" width="1364" height="602" loading="lazy" decoding="async" alt="November 2026 as a grid of days, a copper dot under each day for each of its events, today, the 12th, in copper, and Open in Calendar">
+        <dl class="tools__list">
+          <div class="tool">
+            <dt>Meetings, week and month</dt>
+            <dd class="mono">week</dd>
+            <dd>The rest of today&rsquo;s calendar, the next call waiting when you open it, and your week at a glance, a column a day.</dd>
+          </div>
+          <div class="tool">
+            <dt>Free time</dt>
+            <dd class="mono">free tomorrow</dd>
+            <dd>The gaps in your calendar, a line a day, ready to paste when someone asks when you can meet.</dd>
+          </div>
+          <div class="tool">
+            <dt>Before a call</dt>
+            <dd class="mono">camera</dd>
+            <dd>See yourself, mirrored, then join the meeting about to start.</dd>
+          </div>
+          <div class="tool">
+            <dt>Due reminders</dt>
+            <dd class="mono">due</dd>
+            <dd>What&rsquo;s overdue or due soon, waiting when you open it. Enter ticks it off.</dd>
+          </div>
+          <div class="tool">
+            <dt>Quick capture</dt>
+            <dd class="mono">add todo</dd>
+            <dd>Reminders and calendar events, the date read from what you type.</dd>
+          </div>
+          <div class="tool">
+            <dt>Pomodoro</dt>
+            <dd class="mono">pomo 50</dd>
+            <dd>A focus timer counting down in the menu bar, with breaks.</dd>
+          </div>
+          <div class="tool">
+            <dt>Timer and stopwatch</dt>
+            <dd class="mono">timer 10 min tea</dd>
+            <dd>A countdown for anything else, or until 15:30, and a stopwatch, ticking in the menu bar.</dd>
+          </div>
+          <div class="tool">
+            <dt>Notes</dt>
+            <dd class="mono">note</dd>
+            <dd>Glass notes above your windows, in Markdown, saved as you type and found by what they say.</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="tools__group reveal">
+        <h3>Clipboard and files</h3>
+        <dl class="tools__list">
+          <div class="tool">
+            <dt>Clipboard history</dt>
+            <dd class="mono">clip</dd>
+            <dd>Everything you copy, text and images, searchable and pasted where you are.</dd>
+          </div>
+          <div class="tool">
+            <dt>Screenshots and downloads</dt>
+            <dd class="mono">screenshots</dd>
+            <dd>Your newest ones first, pasted into the chat or email you were writing.</dd>
+          </div>
+          <div class="tool">
+            <dt>Snippets</dt>
+            <dd class="mono">reply Ana</dd>
+            <dd>The text you type over and over, the name filled in and the cursor where you want it.</dd>
+          </div>
+          <div class="tool">
+            <dt>Codes from Messages</dt>
+            <dd class="mono">codes</dd>
+            <dd>The verification codes you got in the last 15 minutes, a keystroke from copied.</dd>
+          </div>
+          <div class="tool">
+            <dt>File actions</dt>
+            <dd class="mono">:terminal</dd>
+            <dd>Open a file with another app, a folder in your terminal, or move either to the Trash.</dd>
+          </div>
+          <div class="tool">
+            <dt>QR codes</dt>
+            <dd class="mono">qr</dd>
+            <dd>A QR code of a link or any text, or of what you copied, ready to paste.</dd>
+          </div>
+        </dl>
+        <img class="tools__card" src="media/answer-clip-682.webp" srcset="media/answer-clip-682.webp 682w, media/answer-clip-1364.webp 1364w" sizes="(max-width: 860px) calc(100vw - 40px), 560px" width="1364" height="818" loading="lazy" decoding="async" alt="Clipboard history: a copied picture selected and shown big beside the list, with where it came from, its size and when it was copied, and under it a git command, a link, a color and an address, each with how long ago">
+      </div>
+
+      <div class="tools__group reveal">
+        <h3>Look it up</h3>
+        <img class="tools__card" src="media/answer-define-682.webp" srcset="media/answer-define-682.webp 682w, media/answer-define-1364.webp 1364w" sizes="(max-width: 860px) calc(100vw - 40px), 560px" width="1364" height="510" loading="lazy" decoding="async" alt="serendipity in a serif with its pronunciation, a noun: the occurrence and development of events by chance in a happy or beneficial way, an example and where the word comes from">
+        <dl class="tools__list">
+          <div class="tool">
+            <dt>Translate</dt>
+            <dd class="mono">translate</dd>
+            <dd>On-device translation of what you type, or of what you copied.</dd>
+          </div>
+          <div class="tool">
+            <dt>Dictionary</dt>
+            <dd class="mono">define</dd>
+            <dd>The Mac&rsquo;s dictionary, right beside the results.</dd>
+          </div>
+          <div class="tool">
+            <dt>Wikipedia</dt>
+            <dd class="mono">wiki lisbon</dd>
+            <dd>The article&rsquo;s picture and first sentences, on a card.</dd>
+          </div>
+          <div class="tool">
+            <dt>Weather</dt>
+            <dd class="mono">weather</dd>
+            <dd>Now, the next hours and five days, where you are or in any city, only when you ask.</dd>
+          </div>
+          <div class="tool">
+            <dt>Stocks</dt>
+            <dd class="mono">stock aapl</dd>
+            <dd>The price and the last seven days, only when you ask.</dd>
+          </div>
+          <div class="tool">
+            <dt>Conversions</dt>
+            <dd class="mono">25 usd to eur</dd>
+            <dd>Currencies, units and time zones, answered as you type, even after some math.</dd>
+          </div>
+          <div class="tool">
+            <dt>Dates</dt>
+            <dd class="mono">days until dec 25</dd>
+            <dd>How long until a date, or what day it is in 3 weeks, asked the way you&rsquo;d say it.</dd>
+          </div>
+          <div class="tool">
+            <dt>Contacts</dt>
+            <dd class="mono">ana</dd>
+            <dd>Type a name and Enter messages them. Tab for call, FaceTime, WhatsApp or email.</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="tools__group reveal">
+        <h3>Text</h3>
+        <dl class="tools__list">
+          <div class="tool">
+            <dt>Text tools</dt>
+            <dd class="mono">json</dd>
+            <dd>Format JSON, make a UUID or a password, encode or hash text.</dd>
+          </div>
+          <div class="tool">
+            <dt>Spelling</dt>
+            <dd class="mono">spell definately</dd>
+            <dd>The word spelled right, or a whole sentence corrected, ready to paste.</dd>
+          </div>
+          <div class="tool">
+            <dt>Text from the screen</dt>
+            <dd class="mono">copy text</dd>
+            <dd>Drag over a video, a picture or an error you can&rsquo;t select, and its text is copied.</dd>
+          </div>
+          <div class="tool">
+            <dt>Large Type</dt>
+            <dd class="mono">large 555-0100</dd>
+            <dd>Any text across the screen, big enough to read from across the room.</dd>
+          </div>
+          <div class="tool">
+            <dt>Colors</dt>
+            <dd class="mono">pick color</dd>
+            <dd>Pick a color off the screen, or type one: hex, RGB and HSL, each with its swatch. The ones you picked are kept.</dd>
+          </div>
+          <div class="tool">
+            <dt>Emoji</dt>
+            <dd class="mono">emoji party</dd>
+            <dd>Every emoji by name, pasted where you are.</dd>
+          </div>
+        </dl>
+        <img class="tools__card" src="media/answer-colors-682.webp" srcset="media/answer-colors-682.webp 682w, media/answer-colors-1364.webp 1364w" sizes="(max-width: 860px) calc(100vw - 40px), 560px" width="1364" height="770" loading="lazy" decoding="async" alt="#c87533 on a band with its contrast on white and black and four shades, then its RGB, HSL and hex rows and a step lighter and darker">
+      </div>
+
+      <div class="tools__group reveal">
+        <h3>Your Mac</h3>
+        <img class="tools__card" src="media/answer-wifi-682.webp" srcset="media/answer-wifi-682.webp 682w, media/answer-wifi-1364.webp 1364w" sizes="(max-width: 860px) calc(100vw - 40px), 560px" width="1364" height="522" loading="lazy" decoding="async" alt="A Wi-Fi network, Northwind Guest, with its password and a QR code a phone joins from, and Copy and Copy QR Code beside it">
+        <dl class="tools__list">
+          <div class="tool">
+            <dt>Your Mac’s numbers</dt>
+            <dd class="mono">cpu</dd>
+            <dd>What&rsquo;s busy on the processor or in memory, with Enter to end it, the battery, free disk space, your IP and open ports.</dd>
+          </div>
+          <div class="tool">
+            <dt>Internet speed</dt>
+            <dd class="mono">speed</dd>
+            <dd>Your download and upload speed and latency, with Apple&rsquo;s own test, when you press Enter.</dd>
+          </div>
+          <div class="tool">
+            <dt>Wi-Fi password</dt>
+            <dd class="mono">wifi password</dd>
+            <dd>The password, with a QR code a guest&rsquo;s phone joins from.</dd>
+          </div>
+          <div class="tool">
+            <dt>Bluetooth</dt>
+            <dd class="mono">:connect airpods</dd>
+            <dd>Connect your AirPods or any paired device, or disconnect it.</dd>
+          </div>
+          <div class="tool">
+            <dt>Music and sound</dt>
+            <dd class="mono">:play</dd>
+            <dd>Play, pause and skip, mute, or switch to your headphones.</dd>
+          </div>
+          <div class="tool">
+            <dt>Keep awake</dt>
+            <dd class="mono">:awake</dd>
+            <dd>Keeps your Mac and its screen awake for an hour or two, until a time, or until you say so.</dd>
+          </div>
+          <div class="tool">
+            <dt>Mac commands</dt>
+            <dd class="mono">:quit all</dd>
+            <dd>Quit or hide every app, show the desktop, mute the mic, or log out.</dd>
+          </div>
+          <div class="tool">
+            <dt>Window layouts</dt>
+            <dd class="mono">:layout work</dd>
+            <dd>Every window on screen, saved by name and put back in one go.</dd>
+          </div>
+          <div class="tool">
+            <dt>Menu search</dt>
+            <dd class="mono">:export pdf</dd>
+            <dd>Any menu item of the app in front, found by its name.</dd>
+          </div>
+          <div class="tool">
+            <dt>Browser tabs</dt>
+            <dd class="mono">tabs</dd>
+            <dd>The tabs already open, found by their title. Enter switches to one instead of opening it again.</dd>
+          </div>
+        </dl>
+      </div>
     </div>
   </section>
 
@@ -626,7 +684,7 @@ text = <span class="t-s">"Hi {query}, thanks for the note."</span></pre>
       <div class="download__cta">
         <a class="btn btn--primary" href="https://github.com/ramosrob/copperlight/releases/latest/download/Copperlight.zip">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg>
-          Download Copperlight 0.12
+          Download Copperlight 0.13
         </a>
         <p class="meta">macOS 15 or later · Apple silicon and Intel · 10 MB</p>
       </div>
@@ -646,6 +704,7 @@ text = <span class="t-s">"Hi {query}, thanks for the note."</span></pre>
     <p class="footer__brand"><img src="mark.svg" width="16" height="16" alt="">Copperlight <span>· GPL-3.0 · by Rob Ramos</span></p>
     <nav class="footer__links" aria-label="Elsewhere">
       <a href="/spotlight-alternative/">Compare</a>
+      <a href="/privacy/">Privacy</a>
       <a href="https://github.com/ramosrob/copperlight">GitHub</a>
       <a href="https://github.com/sponsors/ramosrob">Sponsor</a>
       <a href="https://buymeacoffee.com/ramosrob">Buy me a coffee</a>
