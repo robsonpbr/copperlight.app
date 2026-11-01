@@ -1,6 +1,6 @@
 # copperlight.app
 
-The website of [Copperlight](https://github.com/ramosrob/copperlight), a free and open source keyboard launcher for
+The website of [Copperlight](https://github.com/robsonpbr/copperlight), a free and open source keyboard launcher for
 macOS. Static pages: HTML, CSS and a little JavaScript, no framework, no build step, no tracking.
 
 ## Run it
@@ -33,7 +33,7 @@ Everything the demo shows has to be something the app really does in its current
 
 ## Releases
 
-The download buttons link to `https://github.com/ramosrob/copperlight/releases/latest/download/Copperlight.zip`, so
+The download buttons link to `https://github.com/robsonpbr/copperlight/releases/latest/download/Copperlight.zip`, so
 every app release must attach a file named exactly `Copperlight.zip` (the app's `make release` makes it). Only a full
 release counts as "latest": one marked pre-release (or a draft) leaves the download link on the previous release, or
 a 404 if there is none. The app repo must be public, or nobody else can download its releases. The version and size
@@ -57,7 +57,7 @@ about other apps: when one of them changes, update the page, its "Checked" line 
 3. At your DNS provider, for `copperlight.app`:
    - `A` records: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
    - `AAAA` records: `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
-   - optionally `www` as a `CNAME` to `ramosrob.github.io`
+   - optionally `www` as a `CNAME` to `robsonpbr.github.io`
 4. Wait for the DNS check in Settings → Pages to pass and for GitHub to issue the certificate, then tick
    **Enforce HTTPS**. Browsers only open .app domains over HTTPS, so the site won't load at all until the certificate
    exists (minutes to about an hour after DNS resolves).

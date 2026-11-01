@@ -14,7 +14,7 @@ const PAGES = [
   { path: "privacy/index.html", url: `${SITE}/privacy/` },
 ];
 const COMPARISONS = PAGES.filter((page) => page.path.includes("-alternative/"));
-const DOWNLOAD = "https://github.com/ramosrob/copperlight/releases/latest/download/Copperlight.zip";
+const DOWNLOAD = "https://github.com/robsonpbr/copperlight/releases/latest/download/Copperlight.zip";
 
 const meta = (html, attr, name) => html.match(new RegExp(`<meta ${attr}="${name}" content="([^"]*)"`))?.[1];
 const jsonLD = (html) => [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]

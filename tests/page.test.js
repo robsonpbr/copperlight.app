@@ -79,10 +79,10 @@ export { html, css, visibleText };
 // Task 3: the rest of the page.
 
 const URLS = {
-  download: "https://github.com/ramosrob/copperlight/releases/latest/download/Copperlight.zip",
-  source: "https://github.com/ramosrob/copperlight",
-  readme: "https://github.com/ramosrob/copperlight#readme",
-  sponsor: "https://github.com/sponsors/ramosrob",
+  download: "https://github.com/robsonpbr/copperlight/releases/latest/download/Copperlight.zip",
+  source: "https://github.com/robsonpbr/copperlight",
+  readme: "https://github.com/robsonpbr/copperlight#readme",
+  sponsor: "https://github.com/sponsors/robsonpbr",
   coffee: "https://buymeacoffee.com/ramosrob",
 };
 const LAUNCHERS = /raycast|alfred|launchbar/i;
@@ -399,7 +399,7 @@ test("v0.11: answers in their own shape and the weather, on the page and in the 
 
 test("the nav asks for a star on GitHub, not for sponsoring", () => {
   const nav = html.match(/<nav class="nav__links"[\s\S]*?<\/nav>/)[0];
-  assert.match(nav, /<a class="nav__star" href="https:\/\/github\.com\/ramosrob\/copperlight" aria-label="Star Copperlight on GitHub">/);
+  assert.match(nav, /<a class="nav__star" href="https:\/\/github\.com\/robsonpbr\/copperlight" aria-label="Star Copperlight on GitHub">/);
   assert.ok(!nav.includes("sponsors"), "sponsoring stays in the footer");
 });
 
