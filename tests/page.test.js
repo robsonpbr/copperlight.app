@@ -427,7 +427,12 @@ test("v0.13: free time, screenshots, Wi-Fi, codes, Wikipedia and the camera, on 
   const keys = entries.flatMap((entry) => entry.keys);
   for (const key of ["free tomorrow", "screenshots", "wifi password"]) assert.ok(keys.includes(key), key);
   assert.ok(html.includes('href="/privacy/"'));
-  assert.ok(visibleText(html).includes("Download Copperlight 0.13") && html.includes('"softwareVersion": "0.13"')); // with each release
+});
+
+test("v0.14: your own calendar and to-do apps, on the page", () => {
+  const section = visibleText(html.slice(html.indexOf('id="tools"'), html.indexOf('id="principles"')));
+  for (const app of ["Google Calendar", "Outlook", "Things", "TickTick", "Todoist"]) assert.ok(section.includes(app), app);
+  assert.ok(visibleText(html).includes("Download Copperlight 0.14") && html.includes('"softwareVersion": "0.14"')); // with each release
 });
 
 test("one version and one size, wherever the page says them", () => {

@@ -70,7 +70,7 @@
           "name": "Does Copperlight collect any data about me?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. It has no account, no analytics, no crash reports and no AI service. What you type stays on your Mac, and what it keeps is in ~/.config/copperlight/ on your Mac."
+            "text": "No. It has no account, no analytics, no crash reports and no AI service. What you type stays on your Mac, and what it keeps is in ~/.config/copperlight/ on your Mac, apart from a Todoist key you save, which stays in your Mac’s keychain."
           }
         },
         {
@@ -152,6 +152,7 @@
           <tr><th scope="row">api.ipify.org</th><td data-label="When">Enter on the Public IP row (<span class="mono">ip</span>)</td><td data-label="What it sends">Nothing besides the request: it answers with your public address</td></tr>
           <tr><th scope="row">Apple’s servers</th><td data-label="When">Enter on <span class="mono">speed</span></td><td data-label="What it sends">The speed test macOS runs itself</td></tr>
           <tr><th scope="row">Homebrew, and the app’s site</th><td data-label="When">Enter on Install, on an app you don’t have</td><td data-label="What it sends">The download of that app</td></tr>
+          <tr><th scope="row">api.todoist.com</th><td data-label="When">Only with Todoist picked in Settings and your key saved: Enter on <span class="mono">add todo</span>, on Show in <span class="mono">due</span>, or on a to-do</td><td data-label="What it sends">Your key, with the to-do and its date; a request for today’s and overdue tasks; or the task to complete</td></tr>
           </tbody>
         </table>
       </div>
@@ -165,7 +166,7 @@
           <thead><tr><th scope="col">Permission</th><th scope="col">What it turns on</th><th scope="col">Without it</th></tr></thead>
           <tbody>
           <tr><th scope="row">Accessibility</th><td data-label="What it turns on">Pasting into your app, window commands and layouts, menu search, the media keys, opening on the text you selected</td><td data-label="Without it">A paste copies instead</td></tr>
-          <tr><th scope="row">Automation</th><td data-label="What it turns on">Your browser’s open tabs; the files you selected in Finder; <span class="mono">:empty trash</span>, <span class="mono">:dark</span>, <span class="mono">:restart</span>, <span class="mono">:log out</span></td><td data-label="Without it">Those don’t work</td></tr>
+          <tr><th scope="row">Automation</th><td data-label="What it turns on">Your browser’s open tabs; the files you selected in Finder; <span class="mono">:empty trash</span>, <span class="mono">:dark</span>, <span class="mono">:restart</span>, <span class="mono">:log out</span>; your to-dos in Things, when you pick it</td><td data-label="Without it">Those don’t work</td></tr>
           <tr><th scope="row">Calendars</th><td data-label="What it turns on"><span class="mono">add event</span>; <span class="mono">meetings</span>, <span class="mono">week</span>, <span class="mono">month</span>, <span class="mono">free</span> and the next meeting</td><td data-label="Without it">No events</td></tr>
           <tr><th scope="row">Reminders</th><td data-label="What it turns on"><span class="mono">add todo</span>, and the ones that are due</td><td data-label="Without it">No reminders</td></tr>
           <tr><th scope="row">Contacts</th><td data-label="What it turns on">Finding people as you type their name</td><td data-label="Without it">No people</td></tr>
@@ -181,7 +182,7 @@
       </div>
 
       <h2>What it keeps</h2>
-      <p>Everything is in <span class="mono">~/.config/copperlight/</span> on your Mac, and nowhere else: your settings, notes, clipboard history (readable only by you), what it learned about what you open, and cached currency rates and app descriptions. Copies made in password managers are never recorded, and a link you copy loses its tracking (<span class="mono">utm_</span>, <span class="mono">fbclid</span>). Settings has a Forget button for what it learned; deleting the folder removes everything.</p>
+      <p>Everything is in <span class="mono">~/.config/copperlight/</span> on your Mac, and nowhere else: your settings, notes, clipboard history (readable only by you), what it learned about what you open, and cached currency rates and app descriptions. Copies made in password managers are never recorded, and a link you copy loses its tracking (<span class="mono">utm_</span>, <span class="mono">fbclid</span>). Settings has a Forget button for what it learned; deleting the folder removes everything. One thing is kept outside it: your Todoist key, if you save one, in your Mac’s keychain, until you forget it in Settings.</p>
       <p>Contacts, browser tabs, reminders and events are read when you open the launcher and kept in memory only. <span class="mono">codes</span> reads only the last 15 minutes of Messages, when you type it. A Wi-Fi password is shown only after macOS asks for your Mac’s password, and kept in memory for 10 minutes.</p>
 
       <h2>Turning things off</h2>
@@ -191,7 +192,7 @@
       <div class="faq__list">
         <details class="faq__item">
           <summary>Does Copperlight collect any data about me?</summary>
-          <p>No. It has no account, no analytics, no crash reports and no AI service. What you type stays on your Mac, and what it keeps is in ~/.config/copperlight/ on your Mac.</p>
+          <p>No. It has no account, no analytics, no crash reports and no AI service. What you type stays on your Mac, and what it keeps is in ~/.config/copperlight/ on your Mac, apart from a Todoist key you save, which stays in your Mac’s keychain.</p>
         </details>
         <details class="faq__item">
           <summary>Does Copperlight work offline?</summary>
