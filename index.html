@@ -52,9 +52,9 @@
         "description": "A free, open source launcher for Mac that takes Spotlight’s place: apps, files, clipboard history, window management, snippets, math and currency, from one hotkey.",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "macOS 15 or later",
-        "softwareVersion": "0.14",
+        "softwareVersion": "0.15",
         "downloadUrl": "https://github.com/robsonpbr/copperlight/releases/latest/download/Copperlight.zip",
-        "fileSize": "10 MB",
+        "fileSize": "11 MB",
         "license": "https://www.gnu.org/licenses/gpl-3.0.html",
         "isAccessibleForFree": true,
         "offers": {
@@ -92,10 +92,18 @@
           },
           {
             "@type": "Question",
+            "name": "Is Copperlight in my language?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It follows your Mac’s language: English, and Portuguese from Brazil and from Portugal, keywords included. Adding yours takes three plain text files and no code, as TRANSLATING.md explains."
+            }
+          },
+          {
+            "@type": "Question",
             "name": "Which Macs does it run on?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "macOS 15 Sequoia or later, on Apple silicon and Intel Macs. The download is 10 MB."
+              "text": "macOS 15 Sequoia or later, on Apple silicon and Intel Macs. The download is 11 MB."
             }
           },
           {
@@ -360,7 +368,7 @@
       <article class="chapter reveal">
         <div class="chapter__text">
           <h2>Make it yours.</h2>
-          <p>Your settings live in one plain-text file you can read, edit and keep in git. Add your own commands, quicklinks and snippets; drop a script in a folder and it becomes a command, community script commands included. Run a shell line with <span class="mono">:!</span>, or turn text into JSON, a UUID or a hash. Turn off any feature you don&rsquo;t use, give its keyword your own words (<span class="mono">t</span> for translate), and trade copper for your Mac&rsquo;s accent color or any color you like.</p>
+          <p>Your settings live in one plain-text file you can read, edit and keep in git. Add your own commands, quicklinks and snippets; drop a script in a folder and it becomes a command, community script commands included. Run a shell line with <span class="mono">:!</span>, or turn text into JSON, a UUID or a hash. Turn off any feature you don&rsquo;t use, rename any keyword to a word of your own (<span class="mono">wth</span> for weather), and trade copper for your Mac&rsquo;s accent color or any color you like.</p>
           <p class="commands"><span class="mono">:!git status</span><span class="mono">json</span><span class="mono">uuid</span></p>
         </div>
         <div class="chapter__visual" aria-hidden="true">
@@ -368,6 +376,9 @@
             <div class="file__title"><span class="desk__dots"><i></i><i></i><i></i></span><span class="mono">~/.config/copperlight/config.toml</span></div>
 <pre class="file__body mono"><span class="t-k">[hotkeys]</span>
 launcher = <span class="t-s">"option+space"</span>   <span class="t-c"># ⌥Space</span>
+
+<span class="t-k">[keywords]</span>
+weather = <span class="t-s">"wth"</span>           <span class="t-c"># wth lisboa</span>
 
 <span class="t-k">[[command]]</span>
 alias = <span class="t-s">"gh"</span>
@@ -649,8 +660,12 @@ text = <span class="t-s">"Hi {query}, thanks for the note."</span></pre>
           <p>Yes. It opens apps, finds files and does math and conversions like Spotlight, and adds window commands, menu search, snippets, timers and your own commands. Keep both, or give Copperlight Spotlight’s shortcut: the steps are below.</p>
         </details>
         <details class="faq__item">
+          <summary>Is Copperlight in my language?</summary>
+          <p>It follows your Mac’s language: English, and Portuguese from Brazil and from Portugal, keywords included. Adding yours takes three plain text files and no code, as <a href="https://github.com/robsonpbr/copperlight/blob/main/TRANSLATING.md">TRANSLATING.md</a> explains.</p>
+        </details>
+        <details class="faq__item">
           <summary>Which Macs does it run on?</summary>
-          <p>macOS 15 Sequoia or later, on Apple silicon and Intel Macs. The download is 10 MB.</p>
+          <p>macOS 15 Sequoia or later, on Apple silicon and Intel Macs. The download is 11 MB.</p>
         </details>
         <details class="faq__item">
           <summary>Does Copperlight send my data anywhere?</summary>
@@ -684,9 +699,9 @@ text = <span class="t-s">"Hi {query}, thanks for the note."</span></pre>
       <div class="download__cta">
         <a class="btn btn--primary" href="https://github.com/robsonpbr/copperlight/releases/latest/download/Copperlight.zip">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg>
-          Download Copperlight 0.14
+          Download Copperlight 0.15
         </a>
-        <p class="meta">macOS 15 or later · Apple silicon and Intel · 10 MB</p>
+        <p class="meta">macOS 15 or later · Apple silicon and Intel · 11 MB</p>
       </div>
       <p class="download__alt">Prefer Terminal? <span class="mono">xattr -dr com.apple.quarantine /Applications/Copperlight.app</span> skips step 3. Or build it yourself: the <a href="https://github.com/robsonpbr/copperlight#readme">README</a> has the commands.</p>
 

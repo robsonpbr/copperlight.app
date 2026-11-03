@@ -416,7 +416,7 @@ test("the demo moves like the app: rows as it types, the card gliding to them, t
 
 test("v0.12: your week, features off, your own keywords and color, typos forgiven, on the page", () => {
   const text = visibleText(html);
-  for (const phrase of ["your week at a glance", "Turn off any feature", "your own words", "accent color", "typo"]) assert.ok(text.includes(phrase), phrase);
+  for (const phrase of ["your week at a glance", "Turn off any feature", "rename any keyword", "accent color", "typo"]) assert.ok(text.includes(phrase), phrase);
 });
 
 test("v0.13: free time, screenshots, Wi-Fi, codes, Wikipedia and the camera, on the page and in the demo; privacy linked", async () => {
@@ -432,7 +432,14 @@ test("v0.13: free time, screenshots, Wi-Fi, codes, Wikipedia and the camera, on 
 test("v0.14: your own calendar and to-do apps, on the page", () => {
   const section = visibleText(html.slice(html.indexOf('id="tools"'), html.indexOf('id="principles"')));
   for (const app of ["Google Calendar", "Outlook", "Things", "TickTick", "Todoist"]) assert.ok(section.includes(app), app);
-  assert.ok(visibleText(html).includes("Download Copperlight 0.14") && html.includes('"softwareVersion": "0.14"')); // with each release
+});
+
+test("v0.15: in your language, and any keyword renamed, on the page", () => {
+  const text = visibleText(html);
+  assert.ok(text.includes("Portuguese") && html.includes('href="https://github.com/robsonpbr/copperlight/blob/main/TRANSLATING.md"'), "languages, and how to add one");
+  const yours = html.slice(html.indexOf("<h2>Make it yours.</h2>"), html.indexOf('id="tools"'));
+  assert.ok(visibleText(yours).includes("wth"), "a keyword renamed, in Make it yours");
+  assert.ok(text.includes("Download Copperlight 0.15") && html.includes('"softwareVersion": "0.15"')); // with each release
 });
 
 test("one version and one size, wherever the page says them", () => {
