@@ -439,7 +439,7 @@ test("v0.15: in your language, and any keyword renamed, on the page", () => {
   assert.ok(text.includes("Portuguese") && html.includes('href="https://github.com/robsonpbr/copperlight/blob/main/TRANSLATING.md"'), "languages, and how to add one");
   const yours = html.slice(html.indexOf("<h2>Make it yours.</h2>"), html.indexOf('id="tools"'));
   assert.ok(visibleText(yours).includes("wth"), "a keyword renamed, in Make it yours");
-  assert.ok(text.includes("Download Copperlight 0.15") && html.includes('"softwareVersion": "0.15"')); // with each release
+  assert.ok(text.includes("Download Copperlight 0.16") && html.includes('"softwareVersion": "0.16"')); // with each release
 });
 
 test("one version and one size, wherever the page says them", () => {
