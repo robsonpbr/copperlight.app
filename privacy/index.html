@@ -132,13 +132,14 @@
           <thead><tr><th scope="col">Server</th><th scope="col">When</th><th scope="col">What it sends</th></tr></thead>
           <tbody>
           <tr><th scope="row">api.coinbase.com</th><td data-label="When">When you open the launcher, at most every 5 minutes</td><td data-label="What it sends">Nothing: it asks for every currency’s rate at once, so it never learns which ones you convert</td></tr>
+          <tr><th scope="row">api.github.com</th><td data-label="When">When you open the launcher, at most once a day</td><td data-label="What it sends">Nothing: it asks for Copperlight’s latest version number</td></tr>
           <tr><th scope="row">formulae.brew.sh</th><td data-label="When">Once a week</td><td data-label="What it sends">Nothing: it downloads Homebrew’s whole public app list, so it never learns which apps you have</td></tr>
           <tr><th scope="row">Each app’s homepage</th><td data-label="When">Once per app, for the apps in Homebrew’s list that you have</td><td data-label="What it sends">A plain request for the page, to read its one-line summary</td></tr>
           <tr><th scope="row">itunes.apple.com</th><td data-label="When">Once per app you got from the App Store</td><td data-label="What it sends">The app’s bundle id, to read the App Store’s description</td></tr>
           </tbody>
         </table>
       </div>
-      <p>These let you find an app by what it does, like “draw” or “noise”, and convert currencies offline. <span class="mono">[apps] online = false</span> turns the app descriptions off.</p>
+      <p>These let you find an app by what it does, like “draw” or “noise”, and convert currencies offline. <span class="mono">[apps] online = false</span> turns the app descriptions off, and <span class="mono">[features] updates = false</span> the check for a new version.</p>
 
       <h3 class="doc__sub">Only when you ask</h3>
       <div class="compare-wrap">
@@ -203,7 +204,7 @@
           <p>To paste into the app you were in, move windows, search menus and read the text you selected. Without it, a paste copies instead.</p>
         </details>
       </div>
-      <p class="sources">The full list, kept with the code: <a href="https://github.com/robsonpbr/copperlight/blob/main/PRIVACY.md">PRIVACY.md</a>. Checked October 2026.</p>
+      <p class="sources">The full list, kept with the code: <a href="https://github.com/robsonpbr/copperlight/blob/main/PRIVACY.md">PRIVACY.md</a>. Checked November 2026.</p>
     </div>
   </section>
 

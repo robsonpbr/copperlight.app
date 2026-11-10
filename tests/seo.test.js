@@ -112,7 +112,7 @@ test("the privacy page is linked from every page, and names no other launcher", 
   for (const { path } of PAGES) assert.ok(read(path).includes('href="/privacy/"'), path);
   const text = visibleText(read("privacy/index.html"));
   assert.doesNotMatch(text, /raycast|alfred/i);
-  for (const server of ["api.coinbase.com", "formulae.brew.sh", "itunes.apple.com", "query1.finance.yahoo.com", "api.open-meteo.com", "wikipedia.org", "api.ipify.org"]) {
+  for (const server of ["api.coinbase.com", "api.github.com", "formulae.brew.sh", "itunes.apple.com", "query1.finance.yahoo.com", "api.open-meteo.com", "wikipedia.org", "api.ipify.org"]) {
     assert.ok(text.includes(server), server);
   }
 });
