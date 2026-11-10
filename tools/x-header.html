@@ -1,0 +1,62 @@
+<!doctype html>
+<!-- The X profile header (1500×500). Your photo covers the bottom left (about x 40–375, y 330–500), so nothing lives
+     there. Rebuild it with the site served on port 8000:
+     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --hide-scrollbars --window-size=1500,500 --screenshot=x-header.png http://localhost:8000/tools/x-header.html -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <title>Copperlight X header</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    html, body { width: 1500px; height: 500px; overflow: hidden; }
+    body::before { opacity: 0.05; }
+    .x { position: relative; isolation: isolate; height: 100%; overflow: hidden; --glow-y: 40%; --glow-strength: 0.5; }
+    .x__halo { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; fill: none; stroke-linecap: round; }
+    .x.glow::before { left: 71%; width: 1250px; }
+    .x__brand { position: absolute; top: 46px; left: 80px; display: flex; align-items: center; gap: 12px; font-size: 26px; font-weight: 500; letter-spacing: -0.01em; }
+    .x__words { position: absolute; top: 116px; left: 80px; }
+    .x h1 { font-size: 74px; line-height: 0.98; letter-spacing: -0.045em; }
+    .x p { margin-top: 20px; font-size: 26px; line-height: 1.3; color: var(--text-2); }
+    .x .launcher { position: absolute; top: 74px; left: 760px; width: 660px; }
+    .x .bar { height: 76px; padding: 0 32px; font-size: 27px; }
+    .x .caret { height: 32px; animation: none; }
+    .x .row__title { font-size: 19px; }
+    .x .row__subtitle { font-size: 15.5px; }
+    .x .row__icon { width: 40px; height: 40px; }
+    .x .row__icon svg { width: 20px; height: 20px; }
+    .x .row__action { font-size: 13.5px; padding: 6px 9px; }
+    .x__url { position: absolute; left: 760px; width: 660px; top: 384px; text-align: center; font: 500 26px/1.2 var(--mono); letter-spacing: -0.01em; }
+  </style>
+</head>
+<body>
+  <svg class="sprite" aria-hidden="true">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"/></symbol>
+  </svg>
+  <div class="x glow">
+    <svg class="x__halo" viewBox="0 0 1500 500" aria-hidden="true">
+      <defs>
+        <linearGradient id="arc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FEBA7A"/><stop offset=".55" stop-color="#E88C4A"/><stop offset="1" stop-color="#B36E42"/></linearGradient>
+        <filter id="blur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="10"/></filter>
+      </defs>
+      <path d="M1365.0 -37.6 A370 370 0 1 0 1365.0 457.6" stroke="#E88C4A" stroke-width="14" opacity=".35" filter="url(#blur)"/>
+      <path d="M1365.0 -37.6 A370 370 0 1 0 1365.0 457.6" stroke="url(#arc)" stroke-width="2.5" opacity=".75"/>
+      <path d="M1385.5 -12.7 A370 370 0 0 1 1385.5 432.7" stroke="#E88C4A" stroke-width="2.5" opacity=".28"/>
+    </svg>
+    <div class="x__brand"><img src="../mark.svg" width="30" height="30" alt="">Copperlight</div>
+    <div class="x__words">
+      <h1>A warmer light<br>than <span class="copper">Spotlight</span>.</h1>
+      <p>Free and open source, for Mac.</p>
+    </div>
+    <div class="launcher">
+      <div class="bar"><span class="bar__text">weather lisbon</span><span class="caret"></span></div>
+      <div class="results">
+        <div class="row is-selected"><span class="row__icon"><svg><use href="#i-sun"/></svg></span> <span class="row__text"><span class="row__title">22° · Partly cloudy</span> <span class="row__subtitle">Lisbon · H 26° L 12°</span></span> <span class="row__action">↵ Open</span></div>
+        <div class="row"><span class="row__icon"><svg><use href="#i-search"/></svg></span> <span class="row__text"><span class="row__title">Search Google for “weather lisbon”</span> <span class="row__subtitle">Google</span></span></div>
+      </div>
+    </div>
+    <div class="x__url copper">copperlight.app</div>
+  </div>
+</body>
+</html>
